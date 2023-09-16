@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/details/styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <title>Documents</title>
+</head>
+<body>
+  <% if(data) { %>
+    <div class="container">
+      <ul class="sections">
+        <li class="totalized"><span class="section-parcent" ><%= data.sections %></span>% das seções totalizadas</li>
+        <li class="local-time">(Horário local)</li>
+        <li class="gray-line">
+          <div class="progress"></div>
+        </li>
+        <li class="atualization">Última atualização <span class="date">00/00/00</span> <span class="time">00:00:00</span></li>
+      </ul>
+      <div class=others>
+        <h2>Administrador</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#59358c" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M128,24A104,104,0,1,0,232,128,104.2,104.2,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z"></path></svg>
+        <h3>Ver lista completa</h3>
+      </div>
+      <ul class="candidates">
+        <% data.candidates.forEach((candidate) => { %>
+          <li class="li">
+            <div class="candidate">
+              <div class="candidates-info">
+                <div class="img">
+                  <div class="circle-progress">
+                    <div class="value">
+                      <img src="/<%= candidate.image %>" />
+                    </div>
+                  </div>
+                </div>
+                <div class="candidates-name">
+                  <span><%= candidate.electoralParty %> - <%= candidate.number %></span>
+                  <h2><%= candidate.name %></h2>
+                  <div class=result>
+                    <span class="elected">
+                      Eleito
+                    </span>
+                    <span class="elected">
+                      Não Eleito
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wishes-info">
+              <span class="wishes"><%= candidate.wishes %> votos</span>
+              <span class="percent"><%= ((candidate.wishes/data.allWishes)*100).toFixed(2) %>%</span>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <script type="module" src="/js/details/main.js"></script>
+</body>
+</html>

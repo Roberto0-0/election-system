@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/candidate/create/styles.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <h2>candidate registration</h2>
+    <form action="/candidate/create" method="POST" enctype="multipart/form-data">
+      <label for="image">
+        <img src="/svg/file-arrow-up-light.svg" />
+        <p>Browser file to upload</p>
+      </label>
+      <input type="file" name="image" id="image" class="input-file" accept="image/*" required />
+      <span class="check-file">
+        <img src="/svg/circle-light.svg" class="check" width="10%"/>
+        <span class="file-name"></span>
+      </span>
+      
+      <div class="input">
+        <input type="text" name="name" placeholder="Candidate" required />
+      </div>
+      <div class="input">
+        <input type="text" name="electoralParty" placeholder="Electoral party" required />
+      </div>
+      <div class="input">
+        <input type="number" name="number" placeholder="Number" required />
+      </div>
+      
+      <button>send</button>
+    </form>
+  </div>
+  <script src="/js/candidate/create/main.js"></script>
+</body>
+</html>

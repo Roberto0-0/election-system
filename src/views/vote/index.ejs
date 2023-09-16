@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/vote/styles.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <ul class="candidates">
+      <% if(data) { %>
+        <li class="li">
+          <form action="/vote/<%= data.id %>" method="POST">
+            <div class="input">
+              <input type="text" name="name" placeholder="Digite seu nome" autocomplete="off" required>
+            </div>
+           <div class="candidates-info">
+            <div class="img">
+              <img src="/<%= data.image %>"/>
+            </div>
+              <div class="candidates-name">
+                <span><%= data.electoralParty %> - <%= data.number %></span>
+                <h2><%= data.name %></h2>
+              </div>
+            </div>
+            <button>CONFIRMAR</button>
+          </form>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  <script src="/js/vote/main.js"></script>
+</body>
+</html>
